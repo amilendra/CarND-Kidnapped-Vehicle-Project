@@ -148,7 +148,7 @@ void ParticleFilter::updateWeights(double sensor_range, double std_landmark[],
 
     // Filter out landmarks outside the sensor range of the particle.
     vector<LandmarkObs> filtered;
-    for (const Map::single_landmark_s landmark : map_landmarks.landmark_list) {
+    for (const Map::single_landmark_s& landmark : map_landmarks.landmark_list) {
       if (dist(landmark.x_f, landmark.y_f, x_ptcl, y_ptcl) <= sensor_range) {
         filtered.push_back(
             LandmarkObs{landmark.id_i, landmark.x_f, landmark.y_f});
